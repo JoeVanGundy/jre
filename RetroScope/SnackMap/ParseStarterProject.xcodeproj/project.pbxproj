@@ -21,7 +21,6 @@
 		D823EF3B1BF876E600D0B1EC /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D823EF3A1BF876E600D0B1EC /* Accounts.framework */; };
 		D823EF3D1BF87DF700D0B1EC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D823EF3C1BF87DF700D0B1EC /* CoreLocation.framework */; };
 		D848EA631BFBFB8900377EEB /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D848EA621BFBFB8900377EEB /* VideoPlayerViewController.swift */; };
-		D848EA671BFC0E8000377EEB /* ny1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D848EA661BFC0E8000377EEB /* ny1.jpg */; };
 		D84AA5EC1C62806000CCEB1F /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84AA5EB1C62806000CCEB1F /* MapsViewController.swift */; };
 		D8662E8D1BF861450042EDF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8662E811BF861450042EDF9 /* AppDelegate.swift */; };
 		D8662E8E1BF861450042EDF9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8662E831BF861450042EDF9 /* Main.storyboard */; };
@@ -38,6 +37,7 @@
 		D8FA4B631BF8A34E0088A07A /* ReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FA4B621BF8A34E0088A07A /* ReviewsViewController.swift */; };
 		D8FFFAB51BF7A38300C7DFA4 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8FFFAB41BF7A38300C7DFA4 /* ParseFacebookUtilsV4.framework */; };
 		D8FFFAB71BF7AACB00C7DFA4 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8FFFAB61BF7AACB00C7DFA4 /* Launch Screen.storyboard */; };
+		D95ED8751C72546600FE50E1 /* ny1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D95ED8741C72546600FE50E1 /* ny1.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,7 +60,6 @@
 		D823EF3A1BF876E600D0B1EC /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		D823EF3C1BF87DF700D0B1EC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D848EA621BFBFB8900377EEB /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
-		D848EA661BFC0E8000377EEB /* ny1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = ny1.jpg; path = ../../../ny1.jpg; sourceTree = "<group>"; };
 		D84AA5EB1C62806000CCEB1F /* MapsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
 		D8662E811BF861450042EDF9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8662E841BF861450042EDF9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
@@ -77,6 +76,7 @@
 		D8FA4B621BF8A34E0088A07A /* ReviewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewsViewController.swift; sourceTree = "<group>"; };
 		D8FFFAB41BF7A38300C7DFA4 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		D8FFFAB61BF7AACB00C7DFA4 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		D95ED8741C72546600FE50E1 /* ny1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ny1.jpg; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,7 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				D8662E811BF861450042EDF9 /* AppDelegate.swift */,
-				D848EA661BFC0E8000377EEB /* ny1.jpg */,
+				D95ED8741C72546600FE50E1 /* ny1.jpg */,
 				D8662E851BF861450042EDF9 /* fbsignin.png */,
 				D8662E861BF861450042EDF9 /* HomeScreenViewController.swift */,
 				D8662E871BF861450042EDF9 /* LogInViewController.swift */,
@@ -257,7 +257,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D848EA671BFC0E8000377EEB /* ny1.jpg in Resources */,
+				D95ED8751C72546600FE50E1 /* ny1.jpg in Resources */,
 				D8662E8E1BF861450042EDF9 /* Main.storyboard in Resources */,
 				D8FFFAB71BF7AACB00C7DFA4 /* Launch Screen.storyboard in Resources */,
 				81BA81521A49DA1800E65899 /* Images.xcassets in Resources */,
