@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A61DF29D3EC039DC7056953B /* Pods_jre.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A862F35B058AA97906DA056 /* Pods_jre.framework */; };
+		83CFCAECB34C84E782B6AAD1 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EACB29A32F77AE959B6EA74 /* Pods.framework */; };
+		D80C48C51C7E29E70084DC39 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80C48C41C7E29E70084DC39 /* LoginViewController.swift */; };
+		D80C48C91C7E2F340084DC39 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80C48C61C7E2F340084DC39 /* FBSDKCoreKit.framework */; };
+		D80C48CA1C7E2F340084DC39 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80C48C71C7E2F340084DC39 /* FBSDKLoginKit.framework */; };
+		D80C48CB1C7E2F340084DC39 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80C48C81C7E2F340084DC39 /* FBSDKShareKit.framework */; };
 		D8BC47A01C778B78006BF5A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BC479F1C778B78006BF5A0 /* AppDelegate.swift */; };
 		D8BC47A51C778B78006BF5A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8BC47A31C778B78006BF5A0 /* Main.storyboard */; };
 		D8BC47A81C778B78006BF5A0 /* jre.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D8BC47A61C778B78006BF5A0 /* jre.xcdatamodeld */; };
@@ -17,9 +21,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		20143D4C8BC82608AF95987C /* Pods-jre.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jre.release.xcconfig"; path = "Pods/Target Support Files/Pods-jre/Pods-jre.release.xcconfig"; sourceTree = "<group>"; };
-		9A862F35B058AA97906DA056 /* Pods_jre.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jre.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B272E4DB6B6D5E81E7B16CC9 /* Pods-jre.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jre.debug.xcconfig"; path = "Pods/Target Support Files/Pods-jre/Pods-jre.debug.xcconfig"; sourceTree = "<group>"; };
+		0EACB29A32F77AE959B6EA74 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DB457E6C8EC3864E967A53B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		D80C48C41C7E29E70084DC39 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D80C48C61C7E2F340084DC39 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		D80C48C71C7E2F340084DC39 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		D80C48C81C7E2F340084DC39 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		D8BC479C1C778B78006BF5A0 /* jre.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jre.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8BC479F1C778B78006BF5A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8BC47A41C778B78006BF5A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -28,6 +35,7 @@
 		D8BC47AC1C778B78006BF5A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D8BC47AE1C778B78006BF5A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8BC47B51C778C4F006BF5A0 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		E656C158DB7F66E6C033CC81 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,26 +43,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A61DF29D3EC039DC7056953B /* Pods_jre.framework in Frameworks */,
+				D80C48CB1C7E2F340084DC39 /* FBSDKShareKit.framework in Frameworks */,
+				83CFCAECB34C84E782B6AAD1 /* Pods.framework in Frameworks */,
+				D80C48C91C7E2F340084DC39 /* FBSDKCoreKit.framework in Frameworks */,
+				D80C48CA1C7E2F340084DC39 /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		507704F282234BEC9A5D2260 /* Pods */ = {
+		124866F189D6C99194F2CD6A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B272E4DB6B6D5E81E7B16CC9 /* Pods-jre.debug.xcconfig */,
-				20143D4C8BC82608AF95987C /* Pods-jre.release.xcconfig */,
+				E656C158DB7F66E6C033CC81 /* Pods.debug.xcconfig */,
+				2DB457E6C8EC3864E967A53B /* Pods.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		A29FF6B00598392F1510A06C /* Frameworks */ = {
+		385014C3830917CDA7A3A576 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9A862F35B058AA97906DA056 /* Pods_jre.framework */,
+				D80C48C61C7E2F340084DC39 /* FBSDKCoreKit.framework */,
+				D80C48C71C7E2F340084DC39 /* FBSDKLoginKit.framework */,
+				D80C48C81C7E2F340084DC39 /* FBSDKShareKit.framework */,
+				0EACB29A32F77AE959B6EA74 /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -64,8 +78,8 @@
 			children = (
 				D8BC479E1C778B78006BF5A0 /* jre */,
 				D8BC479D1C778B78006BF5A0 /* Products */,
-				507704F282234BEC9A5D2260 /* Pods */,
-				A29FF6B00598392F1510A06C /* Frameworks */,
+				124866F189D6C99194F2CD6A /* Pods */,
+				385014C3830917CDA7A3A576 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				D8BC47B51C778C4F006BF5A0 /* MapViewController.swift */,
+				D80C48C41C7E29E70084DC39 /* LoginViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -134,6 +149,7 @@
 				TargetAttributes = {
 					D8BC479B1C778B78006BF5A0 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = V7QPR56F24;
 					};
 				};
 			};
@@ -196,7 +212,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-jre/Pods-jre-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FED16D430FBA5DBE15B69A67 /* Copy Pods Resources */ = {
@@ -211,7 +227,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-jre/Pods-jre-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -221,6 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D80C48C51C7E29E70084DC39 /* LoginViewController.swift in Sources */,
 				D8BC47A81C778B78006BF5A0 /* jre.xcdatamodeld in Sources */,
 				D8BC47B61C778C4F006BF5A0 /* MapViewController.swift in Sources */,
 				D8BC47A01C778B78006BF5A0 /* AppDelegate.swift in Sources */,
@@ -332,27 +349,41 @@
 		};
 		D8BC47B21C778B78006BF5A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B272E4DB6B6D5E81E7B16CC9 /* Pods-jre.debug.xcconfig */;
+			baseConfigurationReference = E656C158DB7F66E6C033CC81 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = jre/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.CavernLabs.jre;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
 		D8BC47B31C778B78006BF5A0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 20143D4C8BC82608AF95987C /* Pods-jre.release.xcconfig */;
+			baseConfigurationReference = 2DB457E6C8EC3864E967A53B /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = jre/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.CavernLabs.jre;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
