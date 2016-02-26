@@ -13,6 +13,11 @@ import FBSDKCoreKit
 
 class LoginViewController: UIViewController {
 
+    // Create outlet for both the button
+    @IBOutlet weak var logInToFacebook: UIButton!
+    @IBOutlet weak var logOut: UIButton!
+    
+    
     @IBAction func loginToFacebook(sender: UIButton) {
         let ref = Firebase(url: "https://jrecse.firebaseio.com")
         let facebookLogin = FBSDKLoginManager()
@@ -48,6 +53,8 @@ class LoginViewController: UIViewController {
                             print("Logged in! \(authData)")
                             // Create a new user dictionary accessing the user's info
                             // provided by the authData parameter
+                            self.logInToFacebook.hidden = true
+                            self.logOut.hidden = false
                             let newUser = [
                                 "provider": authData.provider,
                                 "displayName": authData.providerData["displayName"] as? NSString as? String
@@ -70,6 +77,8 @@ class LoginViewController: UIViewController {
             // user authenticated
             ref.unauth()
             print("Logged out")
+            self.logInToFacebook.hidden = false
+            self.logOut.hidden = true
         } else {
             print("Not signed in")
         }

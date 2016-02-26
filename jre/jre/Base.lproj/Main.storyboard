@@ -67,29 +67,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TcA-Xz-yEd">
-                                <rect key="frame" x="273" y="349" width="55" height="30"/>
-                                <state key="normal" title="Log Out"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SBh-Rk-18p">
+                                <rect key="frame" x="279" y="190" width="42" height="30"/>
+                                <state key="normal" title="Log in"/>
                                 <connections>
-                                    <action selector="logOut:" destination="JTo-9P-Acm" eventType="touchUpInside" id="tzf-17-NjF"/>
+                                    <action selector="loginToFacebook:" destination="JTo-9P-Acm" eventType="touchUpInside" id="wHq-uv-WEb"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AnS-gB-nat">
-                                <rect key="frame" x="279" y="218" width="42" height="30"/>
-                                <state key="normal" title="Log In"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SpY-xC-POh">
+                                <rect key="frame" x="274" y="265" width="52" height="30"/>
+                                <state key="normal" title="Log out"/>
                                 <connections>
-                                    <action selector="loginToFacebook:" destination="JTo-9P-Acm" eventType="touchUpInside" id="5oN-Rb-n2o"/>
+                                    <action selector="logOut:" destination="JTo-9P-Acm" eventType="touchUpInside" id="Pwi-G2-L8d"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="TcA-Xz-yEd" firstAttribute="centerX" secondItem="AnS-gB-nat" secondAttribute="centerX" id="2Hd-fi-FFu"/>
-                            <constraint firstItem="AnS-gB-nat" firstAttribute="top" secondItem="gb2-5x-Ocy" secondAttribute="bottom" constant="198" id="5JM-Lb-ocG"/>
-                            <constraint firstItem="AnS-gB-nat" firstAttribute="centerX" secondItem="lP6-tp-GNm" secondAttribute="centerX" id="j5l-tR-5Ub"/>
-                            <constraint firstItem="Ov2-Ka-zpj" firstAttribute="top" secondItem="TcA-Xz-yEd" secondAttribute="bottom" constant="221" id="kYF-Jf-9Bc"/>
+                            <constraint firstItem="SBh-Rk-18p" firstAttribute="top" secondItem="gb2-5x-Ocy" secondAttribute="bottom" constant="170" id="0k3-1s-c1m"/>
+                            <constraint firstItem="SpY-xC-POh" firstAttribute="centerX" secondItem="SBh-Rk-18p" secondAttribute="centerX" id="dCr-FZ-q6a"/>
+                            <constraint firstItem="SpY-xC-POh" firstAttribute="top" secondItem="SBh-Rk-18p" secondAttribute="bottom" constant="45" id="nlA-7w-dFE"/>
+                            <constraint firstItem="SBh-Rk-18p" firstAttribute="centerX" secondItem="lP6-tp-GNm" secondAttribute="centerX" id="tCh-gy-gEf"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="logInToFacebook" destination="SBh-Rk-18p" id="O1x-4D-Olg"/>
+                        <outlet property="logOut" destination="SpY-xC-POh" id="R2E-hc-lGO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7XY-Bn-3hX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
