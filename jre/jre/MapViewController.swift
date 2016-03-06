@@ -14,20 +14,20 @@ class MapViewController: UIViewController {
     
     
     @IBOutlet weak var mapView: GMSMapView!
+    //@IBOutlet weak var mapOverlay: UIView!
+    
     
     let locationManager = CLLocationManager()
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
-        
-        
+        //self.view .insertSubview(mapOverlay, aboveSubview: mapView)
         
         //Decide the zoom and position of default path
         //let camera = GMSCameraPosition.cameraWithLatitude(-33.86,longitude: 151.20, zoom: 6)
         //let mapView = GMSMapView.mapWithFrame(CGRectZero, camera: camera)
         //mapView.myLocationEnabled = true
-        //self.view = mapView
 
         
         
@@ -38,7 +38,7 @@ class MapViewController: UIViewController {
 //        //Return a marker that needs to be added to the map
 //        let marker = createMarker(markerPosition, markerTitle: markerTitle)
 //        marker.map = mapView
-        
+        //mapView.delegate = self
 
     }
 
@@ -54,6 +54,8 @@ class MapViewController: UIViewController {
         marker.position = markerPosition
         return marker
     }
+    
+   
     
     
 
@@ -98,4 +100,5 @@ extension MapViewController: CLLocationManagerDelegate {
         }
         
     }
+    
 }

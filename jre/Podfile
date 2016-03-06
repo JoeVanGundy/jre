@@ -5,4 +5,6 @@ use_frameworks!
 
 pod 'Firebase'
 pod 'GoogleMaps'
+#pod 'FBSDKCoreKit'
+#pod 'FBSDKLoginKit'
 

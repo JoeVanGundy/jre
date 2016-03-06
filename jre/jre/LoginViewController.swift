@@ -16,8 +16,21 @@ class LoginViewController: UIViewController {
     // Create outlet for both the button
     @IBOutlet weak var logInToFacebook: UIButton!
     @IBOutlet weak var logOut: UIButton!
+    let ref = Firebase(url: "https://jrecse.firebaseio.com")
+    @IBAction func submit(sender: AnyObject) {
+        let newPost = ["post_city": "Columbus", "post_review": review.text!]
+        
+        let postsRef = ref.childByAppendingPath("posts")
+        
+        //let posts = ["Grove City": newPost]
+        postsRef.setValue(newPost)
+        
+        
+    }
     
+    @IBOutlet weak var placeName: UITextField!
     
+    @IBOutlet weak var review: UITextField!
     @IBAction func loginToFacebook(sender: UIButton) {
         let ref = Firebase(url: "https://jrecse.firebaseio.com")
         let facebookLogin = FBSDKLoginManager()
@@ -59,10 +72,7 @@ class LoginViewController: UIViewController {
                                 "provider": authData.provider,
                                 "displayName": authData.providerData["displayName"] as? NSString as? String
                             ]
-                            
-                            // Create a child path with a key set to the uid underneath the "users" node
-                            // This creates a URL path like the following:
-                            //  - https://<YOUR-FIREBASE-APP>.firebaseio.com/users/<uid>
+                           
                             ref.childByAppendingPath("users")
                                 .childByAppendingPath(authData.uid).setValue(newUser)
                         }
@@ -72,7 +82,6 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func logOut(sender: AnyObject) {
-        let ref = Firebase(url: "https://jrecse.firebaseio.com")
         if ref.authData != nil {
             // user authenticated
             ref.unauth()
@@ -87,7 +96,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        logOut.hidden = true
         // Do any additional setup after loading the view.
     }
 
