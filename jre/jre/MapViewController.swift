@@ -20,6 +20,7 @@ class MapViewController: UIViewController {
     let locationManager = CLLocationManager()
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("onCreate: "+NSStringFromClass(self.dynamicType))
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         //self.view .insertSubview(mapOverlay, aboveSubview: mapView)
@@ -41,11 +42,23 @@ class MapViewController: UIViewController {
         //mapView.delegate = self
 
     }
+    
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+         override func didReceiveMemoryWarning() {
+           super.didReceiveMemoryWarning()
+           // Dispose of any resources that can be recreated.
+         }
+
+         override func viewWillAppear(animated: Bool) {
+           super.viewWillAppear(<#T##animated: Bool##Bool#>)
+           print("onStart/onResume: "+NSStringFromClass(self.dynamicType))
+         }
+
+         override func viewWillDisappear(animated: Bool) {
+           super.viewWillDisappear(<#T##animated: Bool##Bool#>)
+           print("onPause/onStop: "+NSStringFromClass(self.dynamicType))
+         }
+    
     
     
     func createMarker(markerPosition: CLLocationCoordinate2D, markerTitle: String) ->GMSMarker{

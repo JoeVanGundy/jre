@@ -97,12 +97,23 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         logOut.hidden = true
+        print("onCreate: "+NSStringFromClass(self.dynamicType))
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(<#T##animated: Bool##Bool#>)
+        print("onStart/onResume: "+NSStringFromClass(self.dynamicType))
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(<#T##animated: Bool##Bool#>)
+        print("onPause/onStop: "+NSStringFromClass(self.dynamicType))
     }
     
 
