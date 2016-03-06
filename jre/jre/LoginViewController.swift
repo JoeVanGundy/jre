@@ -107,12 +107,12 @@ class LoginViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(<#T##animated: Bool##Bool#>)
+        super.viewWillAppear(animated)
         print("onStart/onResume: "+NSStringFromClass(self.dynamicType))
     }
     
     override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(<#T##animated: Bool##Bool#>)
+        super.viewWillDisappear(animated)
         print("onPause/onStop: "+NSStringFromClass(self.dynamicType))
     }
     
