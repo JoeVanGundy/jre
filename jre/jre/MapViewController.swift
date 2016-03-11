@@ -25,21 +25,18 @@ class MapViewController: UIViewController {
         locationManager.requestWhenInUseAuthorization()
         //self.view .insertSubview(mapOverlay, aboveSubview: mapView)
         
-        //Decide the zoom and position of default path
-        //let camera = GMSCameraPosition.cameraWithLatitude(-33.86,longitude: 151.20, zoom: 6)
-        //let mapView = GMSMapView.mapWithFrame(CGRectZero, camera: camera)
-        //mapView.myLocationEnabled = true
+    
 
         
         
-//        let markerPosition = CLLocationCoordinate2DMake(-33.86, 151.20)
-//        let markerTitle = "Yooooo"
-//        
-//    
-//        //Return a marker that needs to be added to the map
-//        let marker = createMarker(markerPosition, markerTitle: markerTitle)
-//        marker.map = mapView
-        //mapView.delegate = self
+        let markerPosition = CLLocationCoordinate2DMake(-33.86, 151.20)
+        let markerTitle = "Yooooo"
+        
+    
+        //Return a marker that needs to be added to the map
+        let marker = createMarker(markerPosition, markerTitle: markerTitle)
+        marker.map = mapView
+        print("Marker placed!")
 
     }
     

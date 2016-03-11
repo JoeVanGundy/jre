@@ -17,16 +17,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var logInToFacebook: UIButton!
     @IBOutlet weak var logOut: UIButton!
     let ref = Firebase(url: "https://jrecse.firebaseio.com")
-    @IBAction func submit(sender: AnyObject) {
-        let newPost = ["post_city": "Columbus", "post_review": review.text!]
-        
-        let postsRef = ref.childByAppendingPath("posts")
-        
-        //let posts = ["Grove City": newPost]
-        postsRef.setValue(newPost)
-        
-        
-    }
     
     @IBOutlet weak var placeName: UITextField!
     
