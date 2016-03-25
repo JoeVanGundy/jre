@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMaps
+import Firebase
 
 class MapViewController: UIViewController {
     
@@ -23,21 +24,21 @@ class MapViewController: UIViewController {
         print("onCreate: "+NSStringFromClass(self.dynamicType))
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
-        //self.view .insertSubview(mapOverlay, aboveSubview: mapView)
         
-    
+        // Get a reference to our posts
+        let postRef = Firebase(url:"https://jrecse.firebaseio.com/posts")
+        postRef.queryOrderedByChild("post_place_name").observeEventType(.ChildAdded, withBlock: { snapshot in
+            print(snapshot.value["post_place_name"] as! String)
+            let marker_place_name = snapshot.value["post_place_name"]
+            let marker_longitude = snapshot.value["post_longitude"]
+            let marker_latitude = snapshot.value["post_latitude"]
+            let marker_description = snapshot.value["post_description"]
+            let markerPostition = CLLocationCoordinate2DMake(marker_latitude as! Double, marker_longitude as! Double)
+            let marker = self.createMarker(markerPostition, markerTitle: marker_place_name as! String)
+            marker.map = self.mapView
+            print("Marker placed!")
 
-        
-        
-        let markerPosition = CLLocationCoordinate2DMake(-33.86, 151.20)
-        let markerTitle = "Yooooo"
-        
-    
-        //Return a marker that needs to be added to the map
-        let marker = createMarker(markerPosition, markerTitle: markerTitle)
-        marker.map = mapView
-        print("Marker placed!")
-
+        })
     }
     
 
@@ -65,19 +66,15 @@ class MapViewController: UIViewController {
         return marker
     }
     
+    func populateMapWithPosts(){
+        
+    }
+    
    
     
     
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 

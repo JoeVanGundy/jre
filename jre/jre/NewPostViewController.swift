@@ -15,15 +15,15 @@ class NewPostViewController: UIViewController,UITextFieldDelegate{
 
     @IBOutlet weak var userCoordinatesLabel: UILabel!
     @IBOutlet weak var placeNameTextField: UITextField!
+    @IBOutlet weak var descriptionTextField: UITextField!
     @IBAction func submitPostButton(sender: AnyObject) {
         let postRef = ref.childByAppendingPath("posts")
-        
         let newPost = [
             "username": ref.authData.uid,
             "post_place_name": placeNameTextField.text! as String,
             "post_longitude": locationManager.location!.coordinate.longitude,
             "post_latitude": locationManager.location!.coordinate.latitude,
-            "post_description": "hello",
+            "post_description": descriptionTextField.text!,
             "post_up_votes": 0,
             "post_down_votes": 0,
             "post_flag_count": 0,
@@ -47,6 +47,7 @@ class NewPostViewController: UIViewController,UITextFieldDelegate{
         placeNameTextField.delegate = self
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,7 +56,7 @@ class NewPostViewController: UIViewController,UITextFieldDelegate{
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {   //delegate method
-        placeNameTextField.resignFirstResponder()
+        self.resignFirstResponder()
         return true
     }
     
