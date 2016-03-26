@@ -70,6 +70,10 @@ class MapViewController: UIViewController {
         
     }
     
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    
    
     
     
