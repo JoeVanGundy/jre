@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		83CFCAECB34C84E782B6AAD1 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EACB29A32F77AE959B6EA74 /* Pods.framework */; };
 		D80C48C51C7E29E70084DC39 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80C48C41C7E29E70084DC39 /* LoginViewController.swift */; };
+		D83F9AD01CA74B6B00111635 /* AVCamPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83F9ACF1CA74B6B00111635 /* AVCamPreviewView.swift */; };
 		D8602F3E1C909B9500A17126 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8602F3D1C909B9500A17126 /* NewPostViewController.swift */; };
 		D8BC47A01C778B78006BF5A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BC479F1C778B78006BF5A0 /* AppDelegate.swift */; };
 		D8BC47A51C778B78006BF5A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8BC47A31C778B78006BF5A0 /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 		0EACB29A32F77AE959B6EA74 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DB457E6C8EC3864E967A53B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D80C48C41C7E29E70084DC39 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D83F9ACF1CA74B6B00111635 /* AVCamPreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVCamPreviewView.swift; sourceTree = "<group>"; };
 		D8602F3D1C909B9500A17126 /* NewPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		D8BC479C1C778B78006BF5A0 /* jre.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jre.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8BC479F1C778B78006BF5A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				D8602F3D1C909B9500A17126 /* NewPostViewController.swift */,
 				D80C48C41C7E29E70084DC39 /* LoginViewController.swift */,
 				D8DAF5121CA70FC000D93A1A /* CameraViewController.swift */,
+				D83F9ACF1CA74B6B00111635 /* AVCamPreviewView.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				D8BC47B61C778C4F006BF5A0 /* MapViewController.swift in Sources */,
 				D8BC47A01C778B78006BF5A0 /* AppDelegate.swift in Sources */,
 				D8602F3E1C909B9500A17126 /* NewPostViewController.swift in Sources */,
+				D83F9AD01CA74B6B00111635 /* AVCamPreviewView.swift in Sources */,
 				D8DAF5131CA70FC000D93A1A /* CameraViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
