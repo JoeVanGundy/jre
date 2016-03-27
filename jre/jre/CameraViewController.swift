@@ -1,13 +1,16 @@
 
 import UIKit
+import AVKit
 import AVFoundation
 import AssetsLibrary
+import Firebase
 
 
 
 var SessionRunningAndDeviceAuthorizedContext = "SessionRunningAndDeviceAuthorizedContext"
 var CapturingStillImageContext = "CapturingStillImageContext"
 var RecordingContext = "RecordingContext"
+let ref = Firebase(url: "https://jrecse.firebaseio.com/images")
 
 class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelegate {
     
@@ -31,6 +34,8 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
     var runtimeErrorHandlingObserver: AnyObject?
     var lockInterfaceRotation: Bool = false
     
+    @IBOutlet weak var myVideoView: UIView!
+    @IBOutlet weak var myImageView: UIImageView!
     @IBOutlet weak var previewView: AVCamPreviewView!
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var snapButton: UIButton!
@@ -464,6 +469,18 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
                 
             }else{
                 self.movieFileOutput!.stopRecording()
+                print(self.movieFileOutput!.recordedFileSize)
+                var videoData = NSData(contentsOfURL: (self.movieFileOutput?.outputFileURL)!)
+                let newPost = [
+                    "image": videoData!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0)),
+                    "image_name": "First video"
+
+                ]
+                let newPostRef = ref.childByAutoId()
+                newPostRef.setValue(newPost)
+
+                
+                
             }
         })
         
@@ -495,10 +512,19 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
                     
                     print("save to album")
                     
+                                    
                     
-                    
+                        
+                    let newPost = [
+                        "image": data.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0)),
+                        "image_name": "First image"
+
+                    ]
+                    let newPostRef = ref.childByAutoId()
+                    newPostRef.setValue(newPost)
+
                 }else{
-                    //                    print("Did not capture still image")
+                    //print("Did not capture still image")
                     print(error)
                 }
                 
@@ -584,6 +610,33 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
         
     }
     
-    
+    @IBAction func playMedia(sender: AnyObject) {
+        let videoURL = NSURL(string: "https://jrecse.firebaseio.com/images/-KDtK8rpcbHAfJ3S616g/image")
+        let player = AVPlayer(URL: videoURL!)
+        let playerLayer = AVPlayerLayer(player: player)
+        playerLayer.frame = self.myVideoView.bounds
+        self.myVideoView.layer.addSublayer(playerLayer)
+        player.play()
+        
+//        ref.queryOrderedByChild("image_name").queryEqualToValue("First video")
+//            .observeEventType(.Value, withBlock: {snapshot in
+////                var imageDataString = snapshot.childSnapshotForPath("-KDt09YbiBWbEmflWhN9").value["image"]
+////                let imageData = NSData(base64EncodedString: imageDataString as! String,
+////                    options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
+////                let decodedImage = UIImage(data: imageData!)
+////                self.myImageView.image = decodedImage
+//                
+//                
+//                var imageDataString = snapshot.childSnapshotForPath("-KDtK8rpcbHAfJ3S616g").value["image"]
+//                let imageData = NSData(base64EncodedString: imageDataString as! String,
+//                    options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
+//                
+//                
+//                myVideoView.
+//            
+//            })
+        
+        
+    }
 }
 
