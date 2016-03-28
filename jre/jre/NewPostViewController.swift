@@ -28,7 +28,9 @@ class NewPostViewController: UIViewController,UITextFieldDelegate{
             "post_down_votes": 0,
             "post_flag_count": 0,
             "post_creation_date": getCurrentDate(),
-            "post_media_url": "http://google.com"
+            "post_media_url": "http://google.com",
+            "post_user_voted": "",
+            "post_user_reported": ""
         ]
         
         let newPostRef = postRef.childByAutoId()
