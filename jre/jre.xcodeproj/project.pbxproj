@@ -19,6 +19,7 @@
 		D8BC47B61C778C4F006BF5A0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BC47B51C778C4F006BF5A0 /* MapViewController.swift */; };
 		D8DAF5131CA70FC000D93A1A /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DAF5121CA70FC000D93A1A /* CameraViewController.swift */; };
 		D8DAF5151CA7380100D93A1A /* camera-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D8DAF5141CA7380100D93A1A /* camera-icon.png */; };
+		E5441F551CA8826600CC84B1 /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = E5441F541CA8826600CC84B1 /* splash.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		D8BC47B51C778C4F006BF5A0 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		D8DAF5121CA70FC000D93A1A /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		D8DAF5141CA7380100D93A1A /* camera-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-icon.png"; sourceTree = "<group>"; };
+		E5441F541CA8826600CC84B1 /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
 		E656C158DB7F66E6C033CC81 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,6 +97,7 @@
 				D8DAF5141CA7380100D93A1A /* camera-icon.png */,
 				D8BC47A31C778B78006BF5A0 /* Main.storyboard */,
 				D8BC47A91C778B78006BF5A0 /* Assets.xcassets */,
+				E5441F541CA8826600CC84B1 /* splash.png */,
 				D8BC47AB1C778B78006BF5A0 /* LaunchScreen.storyboard */,
 				D8BC47AE1C778B78006BF5A0 /* Info.plist */,
 				D8BC47A61C778B78006BF5A0 /* jre.xcdatamodeld */,
@@ -180,6 +183,7 @@
 				D8DAF5151CA7380100D93A1A /* camera-icon.png in Resources */,
 				D8BC47AA1C778B78006BF5A0 /* Assets.xcassets in Resources */,
 				D8BC47A51C778B78006BF5A0 /* Main.storyboard in Resources */,
+				E5441F551CA8826600CC84B1 /* splash.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
