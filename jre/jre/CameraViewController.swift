@@ -665,6 +665,8 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
         }
     }
     
+    
+    
     override func prefersStatusBarHidden() -> Bool {
         return true
     }

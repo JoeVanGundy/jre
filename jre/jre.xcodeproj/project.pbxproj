@@ -23,6 +23,12 @@
 		D8BC47B61C778C4F006BF5A0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BC47B51C778C4F006BF5A0 /* MapViewController.swift */; };
 		D8DAF5131CA70FC000D93A1A /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DAF5121CA70FC000D93A1A /* CameraViewController.swift */; };
 		D8DAF5151CA7380100D93A1A /* camera-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D8DAF5141CA7380100D93A1A /* camera-icon.png */; };
+		D9D074441CAA1C4000444D0C /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D9D074411CAA1C4000444D0C /* test.jpg */; };
+		D9D074451CAA1C4000444D0C /* thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = D9D074421CAA1C4000444D0C /* thumb.png */; };
+		D9D074461CAA1C4000444D0C /* thumbd.png in Resources */ = {isa = PBXBuildFile; fileRef = D9D074431CAA1C4000444D0C /* thumbd.png */; };
+		D9D0744A1CAA1CCE00444D0C /* PlaceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D074491CAA1CCE00444D0C /* PlaceTableViewController.swift */; };
+		D9D0744C1CAA1CE000444D0C /* cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D0744B1CAA1CE000444D0C /* cell.swift */; };
+		D9D0744E1CAA3A5600444D0C /* MediaPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D0744D1CAA3A5600444D0C /* MediaPlayerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +52,12 @@
 		D8BC47B51C778C4F006BF5A0 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		D8DAF5121CA70FC000D93A1A /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		D8DAF5141CA7380100D93A1A /* camera-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-icon.png"; sourceTree = "<group>"; };
+		D9D074411CAA1C4000444D0C /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
+		D9D074421CAA1C4000444D0C /* thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumb.png; sourceTree = "<group>"; };
+		D9D074431CAA1C4000444D0C /* thumbd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbd.png; sourceTree = "<group>"; };
+		D9D074491CAA1CCE00444D0C /* PlaceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTableViewController.swift; sourceTree = "<group>"; };
+		D9D0744B1CAA1CE000444D0C /* cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cell.swift; sourceTree = "<group>"; };
+		D9D0744D1CAA3A5600444D0C /* MediaPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPlayerViewController.swift; sourceTree = "<group>"; };
 		E656C158DB7F66E6C033CC81 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,6 +111,9 @@
 		D8BC479E1C778B78006BF5A0 /* jre */ = {
 			isa = PBXGroup;
 			children = (
+				D9D074411CAA1C4000444D0C /* test.jpg */,
+				D9D074421CAA1C4000444D0C /* thumb.png */,
+				D9D074431CAA1C4000444D0C /* thumbd.png */,
 				D8BC47B41C778C0F006BF5A0 /* ViewControllers */,
 				D8BC479F1C778B78006BF5A0 /* AppDelegate.swift */,
 				D82501DB1CA9A67200A13AAB /* YouWin.png */,
@@ -118,12 +133,15 @@
 		D8BC47B41C778C0F006BF5A0 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D9D0744B1CAA1CE000444D0C /* cell.swift */,
+				D9D074491CAA1CCE00444D0C /* PlaceTableViewController.swift */,
 				D8BC47B51C778C4F006BF5A0 /* MapViewController.swift */,
 				D8602F3D1C909B9500A17126 /* NewPostViewController.swift */,
 				D80C48C41C7E29E70084DC39 /* LoginViewController.swift */,
 				D8DAF5121CA70FC000D93A1A /* CameraViewController.swift */,
 				D83F9ACF1CA74B6B00111635 /* AVCamPreviewView.swift */,
 				D82501D91CA99E0300A13AAB /* AWSTestViewController.swift */,
+				D9D0744D1CAA3A5600444D0C /* MediaPlayerViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -163,7 +181,7 @@
 				TargetAttributes = {
 					D8BC479B1C778B78006BF5A0 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = V7QPR56F24;
+						DevelopmentTeam = 24453PNKRA;
 					};
 				};
 			};
@@ -191,10 +209,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8BC47AD1C778B78006BF5A0 /* LaunchScreen.storyboard in Resources */,
+				D9D074461CAA1C4000444D0C /* thumbd.png in Resources */,
+				D9D074441CAA1C4000444D0C /* test.jpg in Resources */,
 				D8DAF5151CA7380100D93A1A /* camera-icon.png in Resources */,
 				D82501DC1CA9A67200A13AAB /* YouWin.png in Resources */,
 				D8BC47AA1C778B78006BF5A0 /* Assets.xcassets in Resources */,
 				D8BC47A51C778B78006BF5A0 /* Main.storyboard in Resources */,
+				D9D074451CAA1C4000444D0C /* thumb.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,10 +275,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D80C48C51C7E29E70084DC39 /* LoginViewController.swift in Sources */,
+				D9D0744C1CAA1CE000444D0C /* cell.swift in Sources */,
 				D8BC47A81C778B78006BF5A0 /* jre.xcdatamodeld in Sources */,
 				D82501DA1CA99E0300A13AAB /* AWSTestViewController.swift in Sources */,
 				D8BC47B61C778C4F006BF5A0 /* MapViewController.swift in Sources */,
 				D8BC47A01C778B78006BF5A0 /* AppDelegate.swift in Sources */,
+				D9D0744A1CAA1CCE00444D0C /* PlaceTableViewController.swift in Sources */,
+				D9D0744E1CAA3A5600444D0C /* MediaPlayerViewController.swift in Sources */,
 				D8602F3E1C909B9500A17126 /* NewPostViewController.swift in Sources */,
 				D83F9AD31CA87A3800111635 /* AWSBridgingFile.m in Sources */,
 				D83F9AD01CA74B6B00111635 /* AVCamPreviewView.swift in Sources */,
@@ -411,6 +435,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "jre/jre-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;
 		};

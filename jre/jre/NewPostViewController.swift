@@ -15,7 +15,7 @@ import AVFoundation
 
 class NewPostViewController: UIViewController,UITextFieldDelegate{
     let ref = Firebase(url: "https://jrecse.firebaseio.com")
-
+    var placePicker: GMSPlacePicker!
     var uploadCompletionHandler: AWSS3TransferUtilityUploadCompletionHandlerBlock?
     var uploadFileURL: NSURL?
     var myImage = UIImage.init()
@@ -25,6 +25,8 @@ class NewPostViewController: UIViewController,UITextFieldDelegate{
     var imageExt = "png"
     var videoExt = "mov"
     var S3UploadKeyName: String = NSProcessInfo.processInfo().globallyUniqueString
+    var postPlaceName = ""
+    var postPlaceID = ""
     
     @IBOutlet weak var myImageView: UIImageView!
     
@@ -38,28 +40,34 @@ class NewPostViewController: UIViewController,UITextFieldDelegate{
     
     
     @IBAction func submitPostButton(sender: AnyObject) {
+        var mediaExtension = ""
         if(isVideo){
             uploadVideo()
+            mediaExtension = videoExt
         }
         else{
             uploadImage()
+            mediaExtension = imageExt
         }
         let postRef = ref.childByAppendingPath("posts")
         print(uploadFileURL?.path)
         let newPost = [
             "username": ref.authData.uid,
-            "post_place_name": "Traditions",
+            "post_place_name": self.postPlaceName,
+            "post_placeID": self.postPlaceID,
             "post_longitude": locationManager.location!.coordinate.longitude,
             "post_latitude": locationManager.location!.coordinate.latitude,
-            "post_description": "Eating",
+            "post_description": "",
             "post_up_votes": 0,
             "post_down_votes": 0,
             "post_flag_count": 0,
             "post_creation_date": getCurrentDate(),
             "post_user_voted": "",
             "post_user_reported": "",
-            "post_media_url": self.uploadFileURL!.absoluteString
+            "post_media_url": self.uploadFileURL!.absoluteString+mediaExtension
         ]
+        
+        
         
         let newPostRef = postRef.childByAutoId()
         newPostRef.setValue(newPost)
@@ -70,10 +78,10 @@ class NewPostViewController: UIViewController,UITextFieldDelegate{
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
-    
+        
         super.viewDidLoad()
         if(isVideo){
-           playVideo()
+            playVideo()
         }
         S3UploadKeyName = S3UploadKeyName + "."
         self.uploadFileURL = NSURL(string: "http://s3.amazonaws.com/\(self.S3BucketName)/\(self.S3UploadKeyName)")!
@@ -94,7 +102,7 @@ class NewPostViewController: UIViewController,UITextFieldDelegate{
         
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -170,7 +178,7 @@ class NewPostViewController: UIViewController,UITextFieldDelegate{
             
             return nil;
         }
-
+        
     }
     
     func uploadImage(){
@@ -179,7 +187,7 @@ class NewPostViewController: UIViewController,UITextFieldDelegate{
         let imageName = NSURL.fileURLWithPath(NSTemporaryDirectory() + S3UploadKeyName + imageExt).lastPathComponent
         let documentDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first! as String
         
-
+        
         // getting local path
         let localPath = (documentDirectory as NSString).stringByAppendingPathComponent(imageName!)
         
@@ -253,10 +261,10 @@ class NewPostViewController: UIViewController,UITextFieldDelegate{
         player.play()
         // Add notification block
         NSNotificationCenter.defaultCenter().addObserverForName(AVPlayerItemDidPlayToEndTimeNotification, object: player.currentItem, queue: nil)
-            { notification in
-                let t1 = CMTimeMake(0, 100);
-                player.seekToTime(t1)
-                player.play()
+        { notification in
+            let t1 = CMTimeMake(0, 100);
+            player.seekToTime(t1)
+            player.play()
         }
     }
     
@@ -265,13 +273,13 @@ class NewPostViewController: UIViewController,UITextFieldDelegate{
     }
     
     
-
+    
 }
 
 extension NewPostViewController: CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         if status == .AuthorizedWhenInUse {
-         locationManager.startUpdatingLocation()
+            locationManager.startUpdatingLocation()
         }
     }
     
@@ -282,4 +290,39 @@ extension NewPostViewController: CLLocationManagerDelegate {
         }
     }
     
+    @IBAction func googleNearbyButton(sender: AnyObject) {
+        let center = CLLocationCoordinate2DMake((locationManager.location?.coordinate.latitude)!
+            ,(locationManager.location?.coordinate.longitude)!
+        )
+        let northEast = CLLocationCoordinate2DMake(center.latitude + 0.001, center.longitude + 0.001)
+        let southWest = CLLocationCoordinate2DMake(center.latitude - 0.001, center.longitude - 0.001)
+        let viewport = GMSCoordinateBounds(coordinate: northEast, coordinate: southWest)
+        let config = GMSPlacePickerConfig(viewport: viewport)
+        placePicker = GMSPlacePicker(config: config)
+        
+        
+        placePicker?.pickPlaceWithCallback({ (place: GMSPlace?, error: NSError?) -> Void in
+            if let error = error {
+                print("Pick Place error: \(error.localizedDescription)")
+                return
+            }
+            
+            if let place = place {
+                
+                if(place.formattedAddress != nil){
+                    self.postPlaceName = place.name
+                    self.postPlaceID = place.placeID
+                    //                    self.restaurant = Restaurant(
+                    //                        name: place.name,
+                    //                        phone: place.phoneNumber,
+                    //                        longitude: (self.locationManager.location?.coordinate.longitude)!,
+                    //                        latitude: (self.locationManager.location?.coordinate.latitude)!
+                    //                    )
+                    
+                }
+            } else {
+                print("No place selected")
+            }
+        })
+    }
 }
