@@ -4,6 +4,7 @@ import AVKit
 import AVFoundation
 import AssetsLibrary
 import Firebase
+import AWSS3
 
 
 
@@ -14,14 +15,16 @@ let ref = Firebase(url: "https://jrecse.firebaseio.com/images")
 
 class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelegate {
     
-    // MARK: property
-    
     var sessionQueue: dispatch_queue_t!
     var session: AVCaptureSession?
     var videoDeviceInput: AVCaptureDeviceInput?
     var movieFileOutput: AVCaptureMovieFileOutput?
     var stillImageOutput: AVCaptureStillImageOutput?
+    var isVideo: Bool?
+    var videoFileURL: NSURL?
     
+    
+    @IBOutlet weak var mediaPreviewView: UIView!
     
     var deviceAuthorized: Bool  = false
     var backgroundRecordId: UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
@@ -48,6 +51,12 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        mediaPreviewView.hidden = true
+        myVideoView.hidden = true
+        myImageView.hidden = true
+        self.isVideo = false
+        
         
         let session: AVCaptureSession = AVCaptureSession()
         self.session = session
@@ -226,9 +235,7 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
     }
     
     
-    override func prefersStatusBarHidden() -> Bool {
-        return true
-    }
+    
     
     override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
         
@@ -405,7 +412,6 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
     
     // MARK: File Output Delegate
     func captureOutput(captureOutput: AVCaptureFileOutput!, didFinishRecordingToOutputFileAtURL outputFileURL: NSURL!, fromConnections connections: [AnyObject]!, error: NSError!) {
-        
         if(error != nil){
             print(error)
         }
@@ -417,23 +423,25 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
         let backgroundRecordId: UIBackgroundTaskIdentifier = self.backgroundRecordId
         self.backgroundRecordId = UIBackgroundTaskInvalid
         
-        ALAssetsLibrary().writeVideoAtPathToSavedPhotosAlbum(outputFileURL, completionBlock: {
-            (assetURL:NSURL!, error:NSError!) in
-            if error != nil{
-                print(error)
-                
-            }
-            
-            do {
-                try NSFileManager.defaultManager().removeItemAtURL(outputFileURL)
-            } catch _ {
-            }
-            
-            if backgroundRecordId != UIBackgroundTaskInvalid {
-                UIApplication.sharedApplication().endBackgroundTask(backgroundRecordId)
-            }
-            
-        })
+//        ALAssetsLibrary().writeVideoAtPathToSavedPhotosAlbum(outputFileURL, completionBlock: {
+//            (assetURL:NSURL!, error:NSError!) in
+//            if error != nil{
+//                print(error)
+//                
+//            }
+//            
+//            do {
+//                try NSFileManager.defaultManager().removeItemAtURL(outputFileURL)
+//            } catch _ {
+//            }
+//            
+//            if backgroundRecordId != UIBackgroundTaskInvalid {
+//                UIApplication.sharedApplication().endBackgroundTask(backgroundRecordId)
+//            }
+//            
+//        })
+        
+        self.playVideo(outputFileURL)
         
         
     }
@@ -441,7 +449,7 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
     // MARK: Actions
     
     @IBAction func toggleMovieRecord(sender: AnyObject) {
-        
+        self.isVideo = true
         self.recordButton.enabled = false
         
         dispatch_async(self.sessionQueue, {
@@ -464,29 +472,56 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
                 
                 //NSTemporaryDirectory().stringByAppendingPathComponent( "movie".stringByAppendingPathExtension("mov")!)
                 
+                self.movieFileOutput!.maxRecordedDuration = CMTime(seconds: 10.0, preferredTimescale: 60)
+                //Max file size is 100mb
+                self.movieFileOutput!.maxRecordedFileSize = 104857600
                 self.movieFileOutput!.startRecordingToOutputFileURL( outputFilePath, recordingDelegate: self)
                 
                 
             }else{
                 self.movieFileOutput!.stopRecording()
-                print(self.movieFileOutput!.recordedFileSize)
-                var videoData = NSData(contentsOfURL: (self.movieFileOutput?.outputFileURL)!)
-                let newPost = [
-                    "image": videoData!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0)),
-                    "image_name": "First video"
-
-                ]
-                let newPostRef = ref.childByAutoId()
-                newPostRef.setValue(newPost)
-
-                
                 
             }
         })
         
     }
+    
+    func playVideo(outputFileURL: NSURL){
+        
+        self.mediaPreviewView.hidden = false
+        self.myVideoView.hidden = false
+        self.isVideo = true
+        self.videoFileURL = outputFileURL
+
+        let player = AVPlayer(URL: outputFileURL)
+        let playerLayer = AVPlayerLayer(player: player)
+        playerLayer.frame = self.myVideoView.bounds
+        self.myVideoView.layer.addSublayer(playerLayer)
+        player.play()
+        // Add notification block
+        NSNotificationCenter.defaultCenter().addObserverForName(AVPlayerItemDidPlayToEndTimeNotification, object: player.currentItem, queue: nil)
+            { notification in
+                let t1 = CMTimeMake(0, 100);
+                player.seekToTime(t1)
+                player.play()
+        }
+        
+        
+//        let player = AVPlayer(URL: outputFileURL)
+//        let playerViewController = AVPlayerViewController()
+//        playerViewController.player = player
+//        
+//        playerViewController.view.frame = CGRectMake(20, 50, 300, 300)
+//        self.view.addSubview(playerViewController.view)
+//        self.addChildViewController(playerViewController)
+//        
+//        player.play()
+        
+    }
+    
     @IBAction func snapStillImage(sender: AnyObject) {
         print("snapStillImage")
+        isVideo = false
         dispatch_async(self.sessionQueue, {
             // Update the orientation on the still image output video connection before capturing.
             
@@ -505,23 +540,13 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
                 if error == nil {
                     let data:NSData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataSampleBuffer)
                     let image:UIImage = UIImage( data: data)!
+                                                            
+                    //print("save to album")
+                    self.mediaPreviewView.hidden = false
+                    self.myImageView.hidden = false
+                    self.myImageView.image = image
+      
                     
-                    let libaray:ALAssetsLibrary = ALAssetsLibrary()
-                    let orientation: ALAssetOrientation = ALAssetOrientation(rawValue: image.imageOrientation.rawValue)!
-                    libaray.writeImageToSavedPhotosAlbum(image.CGImage, orientation: orientation, completionBlock: nil)
-                    
-                    print("save to album")
-                    
-                                    
-                    
-                        
-                    let newPost = [
-                        "image": data.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0)),
-                        "image_name": "First image"
-
-                    ]
-                    let newPostRef = ref.childByAutoId()
-                    newPostRef.setValue(newPost)
 
                 }else{
                     //print("Did not capture still image")
@@ -610,33 +635,38 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
         
     }
     
-    @IBAction func playMedia(sender: AnyObject) {
-        let videoURL = NSURL(string: "https://jrecse.firebaseio.com/images/-KDtK8rpcbHAfJ3S616g/image")
-        let player = AVPlayer(URL: videoURL!)
-        let playerLayer = AVPlayerLayer(player: player)
-        playerLayer.frame = self.myVideoView.bounds
-        self.myVideoView.layer.addSublayer(playerLayer)
-        player.play()
+    
+    @IBAction func closeMediaPreviewView(sender: AnyObject) {
+        self.mediaPreviewView.hidden = true
+    }
+    
+    @IBAction func submitMedia(sender: AnyObject) {
         
-//        ref.queryOrderedByChild("image_name").queryEqualToValue("First video")
-//            .observeEventType(.Value, withBlock: {snapshot in
-////                var imageDataString = snapshot.childSnapshotForPath("-KDt09YbiBWbEmflWhN9").value["image"]
-////                let imageData = NSData(base64EncodedString: imageDataString as! String,
-////                    options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
-////                let decodedImage = UIImage(data: imageData!)
-////                self.myImageView.image = decodedImage
-//                
-//                
-//                var imageDataString = snapshot.childSnapshotForPath("-KDtK8rpcbHAfJ3S616g").value["image"]
-//                let imageData = NSData(base64EncodedString: imageDataString as! String,
-//                    options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
-//                
-//                
-//                myVideoView.
-//            
-//            })
+        self.mediaPreviewView.hidden = true
+        self.performSegueWithIdentifier("cameraToNewPost", sender: nil)
         
         
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "cameraToNewPost" {
+            if let destination = segue.destinationViewController as? NewPostViewController {
+                if(self.isVideo == false){
+                    destination.myImage = myImageView.image!
+                    destination.isVideo = false
+                }
+                else{
+                    destination.myVideo = videoFileURL!
+                    destination.isVideo = true
+                    
+                }
+            }
+        }
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
     }
 }
 

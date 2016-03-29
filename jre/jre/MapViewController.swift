@@ -74,6 +74,8 @@ class MapViewController: UIViewController {
         return true
     }
     
+    
+    
    
     
     
@@ -110,6 +112,9 @@ extension MapViewController: CLLocationManagerDelegate {
             locationManager.stopUpdatingLocation()
         }
         
+    }
+    @IBAction func showMapButton(sender: AnyObject) {
+        self.performSegueWithIdentifier("showCamera", sender: nil)
     }
     
 }

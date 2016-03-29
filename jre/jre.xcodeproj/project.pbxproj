@@ -9,7 +9,11 @@
 /* Begin PBXBuildFile section */
 		83CFCAECB34C84E782B6AAD1 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EACB29A32F77AE959B6EA74 /* Pods.framework */; };
 		D80C48C51C7E29E70084DC39 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80C48C41C7E29E70084DC39 /* LoginViewController.swift */; };
+		D82501DA1CA99E0300A13AAB /* AWSTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82501D91CA99E0300A13AAB /* AWSTestViewController.swift */; };
+		D82501DC1CA9A67200A13AAB /* YouWin.png in Resources */ = {isa = PBXBuildFile; fileRef = D82501DB1CA9A67200A13AAB /* YouWin.png */; };
 		D83F9AD01CA74B6B00111635 /* AVCamPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83F9ACF1CA74B6B00111635 /* AVCamPreviewView.swift */; };
+		D83F9AD31CA87A3800111635 /* AWSBridgingFile.m in Sources */ = {isa = PBXBuildFile; fileRef = D83F9AD21CA87A3800111635 /* AWSBridgingFile.m */; };
+		D83F9AD51CA8988A00111635 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83F9AD41CA8988A00111635 /* Constants.swift */; };
 		D8602F3E1C909B9500A17126 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8602F3D1C909B9500A17126 /* NewPostViewController.swift */; };
 		D8BC47A01C778B78006BF5A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BC479F1C778B78006BF5A0 /* AppDelegate.swift */; };
 		D8BC47A51C778B78006BF5A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8BC47A31C778B78006BF5A0 /* Main.storyboard */; };
@@ -25,7 +29,12 @@
 		0EACB29A32F77AE959B6EA74 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DB457E6C8EC3864E967A53B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D80C48C41C7E29E70084DC39 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D82501D91CA99E0300A13AAB /* AWSTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSTestViewController.swift; sourceTree = "<group>"; };
+		D82501DB1CA9A67200A13AAB /* YouWin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YouWin.png; sourceTree = "<group>"; };
 		D83F9ACF1CA74B6B00111635 /* AVCamPreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVCamPreviewView.swift; sourceTree = "<group>"; };
+		D83F9AD11CA87A3700111635 /* jre-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "jre-Bridging-Header.h"; sourceTree = "<group>"; };
+		D83F9AD21CA87A3800111635 /* AWSBridgingFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSBridgingFile.m; sourceTree = "<group>"; };
+		D83F9AD41CA8988A00111635 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D8602F3D1C909B9500A17126 /* NewPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		D8BC479C1C778B78006BF5A0 /* jre.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jre.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8BC479F1C778B78006BF5A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,12 +101,16 @@
 			children = (
 				D8BC47B41C778C0F006BF5A0 /* ViewControllers */,
 				D8BC479F1C778B78006BF5A0 /* AppDelegate.swift */,
+				D82501DB1CA9A67200A13AAB /* YouWin.png */,
+				D83F9AD41CA8988A00111635 /* Constants.swift */,
 				D8DAF5141CA7380100D93A1A /* camera-icon.png */,
 				D8BC47A31C778B78006BF5A0 /* Main.storyboard */,
 				D8BC47A91C778B78006BF5A0 /* Assets.xcassets */,
 				D8BC47AB1C778B78006BF5A0 /* LaunchScreen.storyboard */,
 				D8BC47AE1C778B78006BF5A0 /* Info.plist */,
 				D8BC47A61C778B78006BF5A0 /* jre.xcdatamodeld */,
+				D83F9AD21CA87A3800111635 /* AWSBridgingFile.m */,
+				D83F9AD11CA87A3700111635 /* jre-Bridging-Header.h */,
 			);
 			path = jre;
 			sourceTree = "<group>";
@@ -110,6 +123,7 @@
 				D80C48C41C7E29E70084DC39 /* LoginViewController.swift */,
 				D8DAF5121CA70FC000D93A1A /* CameraViewController.swift */,
 				D83F9ACF1CA74B6B00111635 /* AVCamPreviewView.swift */,
+				D82501D91CA99E0300A13AAB /* AWSTestViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -178,6 +192,7 @@
 			files = (
 				D8BC47AD1C778B78006BF5A0 /* LaunchScreen.storyboard in Resources */,
 				D8DAF5151CA7380100D93A1A /* camera-icon.png in Resources */,
+				D82501DC1CA9A67200A13AAB /* YouWin.png in Resources */,
 				D8BC47AA1C778B78006BF5A0 /* Assets.xcassets in Resources */,
 				D8BC47A51C778B78006BF5A0 /* Main.storyboard in Resources */,
 			);
@@ -240,11 +255,14 @@
 			files = (
 				D80C48C51C7E29E70084DC39 /* LoginViewController.swift in Sources */,
 				D8BC47A81C778B78006BF5A0 /* jre.xcdatamodeld in Sources */,
+				D82501DA1CA99E0300A13AAB /* AWSTestViewController.swift in Sources */,
 				D8BC47B61C778C4F006BF5A0 /* MapViewController.swift in Sources */,
 				D8BC47A01C778B78006BF5A0 /* AppDelegate.swift in Sources */,
 				D8602F3E1C909B9500A17126 /* NewPostViewController.swift in Sources */,
+				D83F9AD31CA87A3800111635 /* AWSBridgingFile.m in Sources */,
 				D83F9AD01CA74B6B00111635 /* AVCamPreviewView.swift in Sources */,
 				D8DAF5131CA70FC000D93A1A /* CameraViewController.swift in Sources */,
+				D83F9AD51CA8988A00111635 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +374,7 @@
 			baseConfigurationReference = E656C158DB7F66E6C033CC81 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
@@ -368,6 +387,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.CavernLabs.jre;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "jre/jre-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -376,6 +397,7 @@
 			baseConfigurationReference = 2DB457E6C8EC3864E967A53B /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
@@ -388,6 +410,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.CavernLabs.jre;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "jre/jre-Bridging-Header.h";
 			};
 			name = Release;
 		};

@@ -11,11 +11,15 @@ import CoreData
 import GoogleMaps
 import FBSDKCoreKit
 import FBSDKLoginKit
+import AWSS3
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -25,8 +29,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let googleMapsAPIKey = "AIzaSyDg3eJ4pzkBBlW5kWb0gpFN-f9Dg_QW2k4"
         GMSServices.provideAPIKey(googleMapsAPIKey)
         
+        let credentialsProvider = AWSCognitoCredentialsProvider(regionType: CognitoRegionType, identityPoolId: CognitoIdentityPoolId)
+        let configuration = AWSServiceConfiguration(region: DefaultServiceRegionType, credentialsProvider: credentialsProvider)
+        AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = configuration
+        
+        
         return FBSDKApplicationDelegate.sharedInstance()
             .application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        
+        
+        
+        return true
     }
     
     func applicationDidBecomeActive(application: UIApplication) {
